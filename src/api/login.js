@@ -18,8 +18,6 @@ export const login = async ({email, password}) => {
     localStorage.setItem('email', data.userLogged.email)
     localStorage.setItem('role', data.userLogged.role)
 
-    console.log(data);
-
     return data;
 
   } catch(error) {

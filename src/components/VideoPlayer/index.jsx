@@ -6,7 +6,7 @@ const VideoPlayer = () => {
       <h2>Video Streaming Example</h2>
       <video controls width="600" autoPlay>
         <source src="/video/video.mp4" type="video/mp4" />
-        Tu navegador no soporta el elemento de video.
+        Your browser does not support the video element.
       </video>
     </div>
   );

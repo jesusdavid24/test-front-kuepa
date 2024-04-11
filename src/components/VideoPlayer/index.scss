@@ -11,12 +11,12 @@
   }
 
   video {
-    max-width: calc(100vw - 40px); // Ajusta el ancho máximo del video
+    max-width: calc(100vw - 40px); 
     width: 60%;
     height: auto;
 
     @media screen and (max-width: 768px) {
-      max-width: 90%; // Reducir el ancho máximo en dispositivos móviles
+      max-width: 90%; 
     }
   }
 }

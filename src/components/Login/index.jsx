@@ -5,6 +5,7 @@ import useForm from '../../hooks/useForm';
 import toast from '../../utils/toast';
 import './index.scss';
 import { useEffect } from 'react';
+import Cookies from 'js-cookie';
 
 const Login = () => {
 
@@ -16,6 +17,10 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (form) {
+      Cookies.set('username', form.email);
+    }
 
     dispatch(setLogin(form))
     toast.fire({

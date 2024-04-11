@@ -1,0 +1,14 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 20%;
+
+  &__videoPlayer {
+    margin-top: 15vh;
+  }
+
+  &__chat {
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+  }
+}
