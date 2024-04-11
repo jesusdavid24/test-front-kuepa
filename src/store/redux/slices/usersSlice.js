@@ -1,10 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import
-{
-  fetchUsers,
-  createUsers,
-  updateUsers,
-} from "../../../api/users";
+import { fetchUsers, createUsers } from '../../../api/user';
 
 const initialState = {
   users: [],
@@ -32,11 +27,6 @@ export const postUsers = createAsyncThunk(
 const usersSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
-    deleteUser: (state, action) => {
-      state.users = state.users.filter((_, idx) => idx !== action.payload.index);
-    }
-  },
   extraReducers: (builder) => {
     builder
       .addCase(getUsers.pending, (state) => {
@@ -66,6 +56,5 @@ const usersSlice = createSlice({
 
 export const selectUsers = state => state.users;
 export const selectPostUsers = state => state.users;
-export const { deleteUser } = usersSlice.actions;
 
 export default usersSlice.reducer;

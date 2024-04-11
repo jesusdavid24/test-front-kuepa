@@ -1,0 +1,21 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 20%;
+
+  &__videoPlayer {
+    margin-top: 15vh;
+  }
+
+  &__chat {
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+  }
+
+  
+@media (max-width: 1024px) {
+  .home {
+    padding: 156%
+  }
+}
+}

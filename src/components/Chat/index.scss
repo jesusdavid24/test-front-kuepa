@@ -1,48 +1,84 @@
-  #all-messages {
-      padding: 50px 25px;
-  }
-
-  .message {
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+  
+      h1 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+      }
+    }
+  
+    .all-messages {
+      margin-bottom: 20px;
+    }
+  
+    .message {
       display: flex;
       margin-bottom: 20px;
-  }
-
-  .message .image-container {
-      width: 50px;
-      align-items: flex-start;
-  }
-
-  .message .message-body {
+    }
+  
+    .message-body {
       margin-left: 10px;
-      width: calc(100% - 50px)
-  }
-
-  .message .message-body .user-info {
+      width: calc(100% - 50px);
+    }
+  
+    .user-info {
       font-weight: bold;
-  }
-
-  .message .message-body .user-info .time {
+    }
+  
+    .user-info .time {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       color: #a19c9c;
       font-size: 13px;
-  }
-
-  .message .message-body p {
+    }
+  
+    .message-body p {
       margin-top: 5px;
       color: #6e6e6e;
       font-size: 14px;
-  }
-
-  .send-message {
-      background: #3F51B5;
-      padding: 10px;
+    }
+  
+    .send-message {
       display: flex;
+  
+      input {
+        flex: 1;
+        padding: 10px;
+        border-radius: 5px 0 0 5px;
+        border: 1px solid #ccc;
+      }
+  
+      button {
+        padding: 10px 20px;
+        background-color: #3f51b5;
+        color: #fff;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #2f3f9f;
+        }
+      }
+    }
   }
 
-  .send-message input {
-      width: 100%;
-      padding: 7px 5px;
+@media (max-width: 1024px) {
+  .chat-container {
+    padding: 6%
   }
-
-  .send-message button {
-      margin-left: 10px;
-  }
+}

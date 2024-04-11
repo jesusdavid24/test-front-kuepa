@@ -1,15 +1,18 @@
-import { Link } from "react-router-dom";
+import { useEffect } from 'react';
+import { Link, useNavigate} from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogin, authLogin } from '../../store/redux/slices/loginSlice';
-import { useForm } from "../../hooks/useForm"
+import useForm from '../../hooks/useForm';
 import toast from '../../utils/toast';
 import './index.scss';
 
+
 const Login = () => {
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { error, status } = useSelector(authLogin);
+  const { data, error, status } = useSelector(authLogin);
   const { form, handleChange } = useForm();
 
   const handleSubmit = (event) => {
@@ -20,7 +23,16 @@ const Login = () => {
       icon: "success",
       title: "session started successfully",
     });
+    
   };
+
+  useEffect(() => {
+    if( data.role === 'STUDENT' || data.role === 'MODERATOR') {
+      navigate("/home");
+    };
+
+  }, [data])
+
 
   if(status === 'loading') return  <div>Loading...</div>
 
@@ -58,7 +70,7 @@ const Login = () => {
             <button type="submit" className="login__container__form__sign">Sign in</button>
           </form>
           <p className="login__container__form__signup">Don&apos;t have an account?
-            <Link rel="noopener noreferrer" href="#" to="/registration">
+            <Link rel="noopener noreferrer" href="#" to="/register">
               Sign up
             </Link>
           </p>

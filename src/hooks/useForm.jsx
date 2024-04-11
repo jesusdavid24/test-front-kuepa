@@ -1,30 +1,20 @@
 import { useState } from 'react';
 
-export const useForm = (initialState) => {
-  const [form, setForm] = useState(initialState);
+const useForm = (initialValue = {}) => {
+  const [form, setForm] = useState(initialValue);
 
   const handleChange = (e) => {
-    const { name, value, id: ratingId } = e.target;
-
-    if (name === 'rating') {
-      const id = parseInt(ratingId);
-
-      return setForm({
-        ...form,
-        rating: id,
-      });
-    }
-
     setForm({
       ...form,
-      [name]:
-        name === 'booking_persons' ? (value ? parseInt(value) : '') : value,
+      [e.target.name]: e.target.value
     });
   };
 
   const resetForm = () => {
-    setForm(initialState);
+    setForm(initialValue);
   };
 
-  return { form, handleChange, resetForm, setForm };
+  return { form, handleChange, resetForm };
 };
+
+export default useForm;

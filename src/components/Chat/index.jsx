@@ -7,13 +7,14 @@ function Chat() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const socket = io('http://localhost:3005');
+    const socket = io(`${import.meta.env.VITE_BASE_URL_SOCKET}`);
 
     socket.on("message", (data) => {
+      const currentTime = new Date().toLocaleTimeString();
       setMessages(prevMessages => [...prevMessages, {
-        user: data.user,
+        user: `${localStorage.getItem('name')} ${localStorage.getItem('role')}`,
         text: data.message,
-        time: "Hace 1 segundo"
+        time: currentTime
       }]);
     });
 
@@ -24,19 +25,18 @@ function Chat() {
 
   const sendMessage = () => {
     if (newMessage.trim() !== "") {
-      const socket = io('http://localhost:3005'); // No necesitas URL aquí, ya que estás conectándote al mismo servidor
+      const socket = io(`${import.meta.env.VITE_BASE_URL_SOCKET}`);
       socket.emit("message", newMessage);
       setNewMessage("");
-      // No necesitas desconectar el socket cada vez que envíes un mensaje, se desconectará automáticamente cuando el componente se desmonte
     }
   };
 
   return (
-    <div>
+    <div className="chat-container">
       <header>
-        <h1>Michi Chat</h1>
+        <h1>Kuepa Chat</h1>
       </header>
-      <div id="all-messages">
+      <div className="all-messages">
         {messages.map((msg, index) => (
           <div key={index} className="message">
             <div className="message-body">
@@ -49,7 +49,7 @@ function Chat() {
           </div>
         ))}
       </div>
-      <div>
+      <div className="send-message">
         <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} id="message" />
         <button onClick={sendMessage} id="send-message" type="button">Send</button>
       </div>
