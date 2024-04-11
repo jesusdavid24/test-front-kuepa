@@ -1,10 +1,10 @@
-import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import { activeUser } from '../../api/login';
 import CryptoJS from 'crypto-js';
+import './index.scss';
 
-const SECRET_KEY = 'S3CR3ET0'
+const SECRET_KEY =  `${import.meta.env.VITE_SECRET_KEY}`;
 
 const Verify = () => {
   const navigate = useNavigate();

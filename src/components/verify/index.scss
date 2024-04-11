@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: white; /* Color de texto blanco */
+  color: white; // Color de texto blanco
 
   div {
     margin-bottom: 20px;
@@ -26,7 +26,7 @@
     }
   }
 
-  @media (min-width: 768px) { /* Cambiar el valor de acuerdo a tus necesidades */
-    width: 50%; /* Por ejemplo, el contenedor ocupará el 50% del ancho de la pantalla en dispositivos de escritorio */
+  @media (min-width: 768px) { 
+    width: 100%; 
   }
 }
