@@ -1,0 +1,211 @@
+.login {
+  padding: 7.5%;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    &__form {
+      background-color: #fff;
+      padding: 2rem;
+      color: #000000;
+      box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
+        0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
+        0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 11px 0 0 11px;
+      flex: 1;
+
+      &__link {
+        font-size: 14px !important;
+      }
+
+      &__title {
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+        margin-top: 20px;
+      }
+
+      & form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      &__input-group {
+        margin-top: 0.90rem;
+        font-size: 0.85rem;
+        line-height: 1.25rem;
+        width: 100%;
+      }
+
+      & label {
+        display: block;
+        color: var(--neutral-silver-text);
+        margin-bottom: 4px;
+      }
+
+      & input {
+        width: 100%;
+        border-radius: 0.375rem;
+        border: 1px solid rgba(55, 65, 81, 1);
+        outline: 0;
+        background-color: #fff;
+        padding: 0.75rem 1rem;
+        color: var(--neutral-cod);
+
+        &:focus {
+          border-color: rgba(167, 139, 250);
+        }
+      }
+
+      & input::placeholder {
+        font-size: 10px;
+        font-style: italic;
+        color: var(--neutral-silver-text);
+
+      }
+
+      &__forgot {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: rgba(156, 163, 175, 1);
+        margin: 8px 0 14px 0;
+      }
+
+      & a {
+        color: var(--neutral-cod);
+        text-decoration: none;
+        opacity: 80%;
+        font-size: 12px;
+
+        &:hover {
+          color: var(--neutral-cod);
+          font-style: italic;
+          opacity: 90%
+        }
+      }
+
+      &__sign {
+        display: block;
+        width: 100%;
+        background-color: var(--primary-accent);
+        padding: 0.75rem;
+        text-align: center;
+        color: white;
+        border: none;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f80516;
+        }
+      }
+
+      &__social-message {
+        display: flex;
+        align-items: center;
+        padding-top: 1rem;
+
+        &__line {
+          height: 1px;
+          flex: 1 1 0%;
+          background-color: rgba(55, 65, 81, 1);
+        }
+
+        & p {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          color: rgba(156, 163, 175, 1);
+        }
+      }
+
+      &__social-icons {
+        display: flex;
+        justify-content: center;
+
+        & button {
+          border-radius: 0.125rem;
+          padding: 0.75rem;
+          border: none;
+          background-color: transparent;
+          margin-left: 8px;
+
+          & svg {
+            height: 1.25rem;
+            width: 1.25rem;
+            fill: #000000;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__signup {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: var(--neutral-silver-text);
+
+        & a {
+          color: var(--neutral-silver-text);
+          text-decoration: none;
+
+          &:hover {
+            color: var(--neutral-cod);
+            font-style: italic;
+          }
+        }
+      }
+    }
+
+    &__img {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      object-fit: cover;
+      flex: 3;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 0 11px 11px 0;
+        box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
+          0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
+          0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+  }
+
+}
+
+@media (max-width: 1024px) {
+
+  .login {
+    padding: 6%;
+
+    &__container {
+      display: block;
+
+      &__form {
+        margin-top: 35px;
+        border-radius: 11px;
+      }
+    }
+
+    & img {
+      display: none;
+    }
+  }
+}
