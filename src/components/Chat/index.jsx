@@ -10,10 +10,11 @@ function Chat() {
     const socket = io(`${import.meta.env.VITE_BASE_URL_SOCKET}`);
 
     socket.on("message", (data) => {
+      const currentTime = new Date().toLocaleTimeString();
       setMessages(prevMessages => [...prevMessages, {
-        user: data.user,
+        user: `${localStorage.getItem('name')} ${localStorage.getItem('role')}`,
         text: data.message,
-        time: "Hace 1 segundo"
+        time: currentTime
       }]);
     });
 
@@ -31,11 +32,11 @@ function Chat() {
   };
 
   return (
-    <div>
+    <div className="chat-container">
       <header>
-        <h1>Michi Chat</h1>
+        <h1>Kuepa Chat</h1>
       </header>
-      <div id="all-messages">
+      <div className="all-messages">
         {messages.map((msg, index) => (
           <div key={index} className="message">
             <div className="message-body">
@@ -48,7 +49,7 @@ function Chat() {
           </div>
         ))}
       </div>
-      <div>
+      <div className="send-message">
         <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} id="message" />
         <button onClick={sendMessage} id="send-message" type="button">Send</button>
       </div>
