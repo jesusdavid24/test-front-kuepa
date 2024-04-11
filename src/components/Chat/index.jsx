@@ -5,18 +5,14 @@ import './index.scss';
 function Chat() {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  console.log("newMessage", newMessage);
-  console.log("messages", messages);
 
   useEffect(() => {
     const socket = io(`${import.meta.env.VITE_BASE_URL_SOCKET}`);
 
     socket.on("message", (data) => {
-      console.log("data: ", data.message);
-      console.log("data", data.user);
       const currentTime = new Date().toLocaleTimeString();
       setMessages(prevMessages => [...prevMessages, {
-        user: localStorage.getItem('name', data.user),
+        user: `${localStorage.getItem('name')} ${localStorage.getItem('role')}`,
         text: data.message,
         time: currentTime
       }]);

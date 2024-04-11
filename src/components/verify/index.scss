@@ -1,0 +1,32 @@
+.confirmedAccountMessage {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white; /* Color de texto blanco */
+
+  div {
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  @media (min-width: 768px) { /* Cambiar el valor de acuerdo a tus necesidades */
+    width: 50%; /* Por ejemplo, el contenedor ocupará el 50% del ancho de la pantalla en dispositivos de escritorio */
+  }
+}

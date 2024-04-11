@@ -105,6 +105,8 @@
 
               .registration__container__form__flex {
 
+                margin-top: 100%;
+
                 &__input {
                   width: 100%;
                   padding: 10px 10px 20px 10px;
@@ -204,11 +206,11 @@
             & button {
               border: none;
               outline: none;
-              background-color: var(--primary-accent);
+              background-color: #b64b52;
               ;
               padding: 10px;
               border-radius: 10px;
-              color: #fff;
+              color: #fffcfc; 
               font-size: 16px;
               transform: .3s ease;
               cursor: pointer;

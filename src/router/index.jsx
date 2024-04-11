@@ -5,7 +5,7 @@ import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
 import PrivateRoute from '../components/PrivateRoute';
 import Login from '../components/Login';
-import Verify from '../components/verify';
+import Verify from '../components/Verify'
 import Register from '../components/Register';
 import ConfirmedAccount from '../pages/ConfirmedAccount';
 

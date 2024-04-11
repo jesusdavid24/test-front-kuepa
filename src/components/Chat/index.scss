@@ -38,6 +38,9 @@
     }
   
     .user-info .time {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       color: #a19c9c;
       font-size: 13px;
     }
@@ -73,4 +76,9 @@
       }
     }
   }
-  
+
+@media (max-width: 1024px) {
+  .chat-container {
+    padding: 6%
+  }
+}

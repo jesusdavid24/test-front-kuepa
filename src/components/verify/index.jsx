@@ -23,12 +23,11 @@ const Verify = () => {
   }
 
   return (
-    <>
+    <div className="confirmedAccountMessage">
       <div>Gracias por registrarte en nuestra App</div>
       <button onClick={handleClick}>Dale click para activar tu cuenta</button>
-    </>
-
-  )
+    </div>
+  );
 }
 
 export default Verify

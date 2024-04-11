@@ -17,7 +17,6 @@
     "crypto-js": "^4.1.1",
     "dayjs": "^1.11.9",
     "embla-carousel-react": "^7.1.0",
-    "js-cookie": "^3.0.5",
     "mapbox-gl": "^2.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
