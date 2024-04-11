@@ -29,10 +29,10 @@ const loginSlice = createSlice({
       .addCase(setLogin.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(setLogin.fulfilled, (state, { payload: { newUser } }) => {
+      .addCase(setLogin.fulfilled, (state, { payload: { userLogged } }) => {
         (state.status = 'idle'),
-          (state.data = newUser),
-          (state.email = newUser.email)
+          (state.data = userLogged),
+          (state.email = userLogged.email)
       })
       .addCase(setLogin.rejected, (state, { error }) => {
         (state.status = 'failed'), (state.error = error.message);

@@ -7,7 +7,7 @@ function Chat() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const socket = io('http://localhost:3005');
+    const socket = io(`${import.meta.env.VITE_BASE_URL_SOCKET}`);
 
     socket.on("message", (data) => {
       setMessages(prevMessages => [...prevMessages, {
@@ -24,10 +24,9 @@ function Chat() {
 
   const sendMessage = () => {
     if (newMessage.trim() !== "") {
-      const socket = io('http://localhost:3005'); // No necesitas URL aquí, ya que estás conectándote al mismo servidor
+      const socket = io(`${import.meta.env.VITE_BASE_URL_SOCKET}`);
       socket.emit("message", newMessage);
       setNewMessage("");
-      // No necesitas desconectar el socket cada vez que envíes un mensaje, se desconectará automáticamente cuando el componente se desmonte
     }
   };
 

@@ -11,8 +11,7 @@ const config = {
 export const login = async ({email, password}) => {
   try {
     const { data } = await axios.post(`${URL}/auth`,
-    { email, password}, config)
-
+    { email, password }, config)
 
     localStorage.setItem('token', data.token)
     localStorage.setItem('name', data.userLogged.name)
@@ -25,3 +24,13 @@ export const login = async ({email, password}) => {
     throw new Error('Ocurrio un error')
   }
 };
+
+export const activeUser = async (token) => {
+  try {
+    const { data } = await axios.get(`${URL}/auth/active-account/${token}`, config);
+    return data;
+  } catch(error) {
+    console.log(error)
+    return []
+  }
+}

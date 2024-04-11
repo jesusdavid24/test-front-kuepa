@@ -1,0 +1,27 @@
+// Header.scss
+.header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+
+  .header__user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .header__user__name {
+      font-weight: bold;
+    }
+
+    .header__user__logout {
+      color: blue;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
