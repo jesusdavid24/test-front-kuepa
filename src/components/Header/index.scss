@@ -1,27 +1,62 @@
-// Header.scss
 .header {
-  background-color: #f0f0f0;
-  padding: 10px;
-  display: flex;
-  justify-content: flex-end;
+  padding: 1%;
 
-  .header__user {
+  &__container {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
     gap: 10px;
+    background-color: #f0f0f0;
+    width: 100%;
+    padding: 15px;
 
-    .header__user__name {
-      font-weight: bold;
-    }
+    &__user {
+      display: flex;
+      align-items: center;
 
-    .header__user__logout {
-      color: blue;
-      cursor: pointer;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
+      img {
+        width: 28px;
       }
+    }
+  
+    &__name {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0.8vh;
+      padding: 5px;
+
+      &__user {
+        h4 {
+          font-weight: bolder;
+        }
+      }
+
+      &__singout {
+        padding: 3%;
+
+        a {
+          color: blue;
+          cursor: pointer;
+          text-decoration: none;
+          
+          img {
+            text-align: end;
+          }
+        }  
+      }
+
+
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 2%;
+
+    &__container {
+      display: flex;
+      justify-content: center;
     }
   }
 }

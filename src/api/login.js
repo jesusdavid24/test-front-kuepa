@@ -29,6 +29,7 @@ export const login = async ({email, password}) => {
 export const activeUser = async (token) => {
   try {
     const { data } = await axios.get(`${URL}/auth/active-account/${token}`, config);
+    console.log("data", data);
     return data;
   } catch(error) {
     console.log(error)

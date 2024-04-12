@@ -56,35 +56,50 @@ cd test-front-kuepa
  npm run dev
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
+## Backend Requirement
 
-## Ejecutando las pruebas ⚙️
+For the frontend to function properly, it is essential to have the backend operational, which handles user authentication, chat session logic, and real-time communication. Ensure you download, configure, and run the backend by following the steps below:
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
+1. Clone the repository:
 
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
+```shell
+git clone https://github.com/jesusdavid24/test-Kuepa.git
 ```
 
-Da un ejemplo
+2. Navigate to the project directory:
 
+```shell
+cd test-kuepa
 ```
 
-### Y las pruebas de estilo de codificación ⌨️
+3. Install the dependencies:
 
-_Explica que verifican estas pruebas y por qué_
-
+```shell
+ npm install
 ```
 
-Da un ejemplo
+4. create an .env file in the root of the project and add the following data:
 
+I must clarify that when a user is created an email is sent to your registered email and you must confirm the account. This email is a test email, I only created it for the test and there is no problem to use it.
+
+For the database we used ORM prisma with mongodb. I created a test cluster and in the environment variables I leave the exact address of my cluster, in case it does not work, it is necessary to go to mongo atlas and create a new cluster. After creating it, go to the part that says connection and there it gives you a link to mongo compass, I used that one, but you can use the one you want.
+
+```shell
+  PORT=3005
+  DATABASE_URL=mongodb+srv://jbravov:hsgt32ycy0x6VVuv@kuepa.vxbsmv8.mongodb.net/dbkuepa
+  JWT_SECRET=secret
+  SMTP_SERVER=smtp.gmail.com
+  SMTP_PORT=465
+  SMTP_USER=testkuepa@gmail.com
+  SMTP_PASSWORD=mxlizgfazpeytqck
+  BASE_URL_FRONT=http://localhost:5173
 ```
 
-## Despliegue 📦
+5. Start the application:
 
-_Agrega notas adicionales sobre como hacer deploy_
+```shell
+ npm run dev
+```
 
 ## Built with 🛠️
 

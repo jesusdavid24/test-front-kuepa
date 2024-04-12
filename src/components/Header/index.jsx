@@ -22,14 +22,20 @@ const Header = () => {
 
   return (
     <div className='header'>
-      <div className='header__USER'>
-        <i className='bi bi-person-fill' />
-      </div>
-      <div className='header__user__name'>
-        <h4>{`${localStorage.getItem('name')}`}</h4>
-        <a type='button' onClick={handleLogout}>
-          logout
-        </a>
+      <div className="header__container">
+        <div className='header__container__user'>
+          <img src="icons/user.svg" alt="user" />
+        </div>
+        <div className="header__container__name">
+          <div className='header__container__name__user'>
+            <h4>{`${localStorage.getItem('name')}`}</h4>
+          </div>
+          <div className='header__container__name__singout'>
+            <a type='button' onClick={handleLogout}>
+              <img src="icons/exit.svg" alt="exit" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   )

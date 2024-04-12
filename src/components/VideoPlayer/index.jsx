@@ -2,12 +2,13 @@ import './index.scss';
 
 const VideoPlayer = () => {
   return (
-    <div className="video-player">
-      <h2>Video Streaming Example</h2>
-      <video controls width="600" autoPlay>
-        <source src="/video/video.mp4" type="video/mp4" />
-        Your browser does not support the video element.
-      </video>
+    <div className="video__player">
+      <div className="video__player__container">
+        <video controls autoPlay>
+          <source src="/video/video.mp4" type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+      </div>
     </div>
   );
 };

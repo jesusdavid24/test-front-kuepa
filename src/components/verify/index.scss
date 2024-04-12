@@ -1,32 +1,53 @@
-.confirmedAccountMessage {
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: white; // Color de texto blanco
-
-  div {
-    margin-bottom: 20px;
-  }
-
-  button {
-    padding: 10px 20px;
-    background-color: transparent;
-    border: 2px solid white;
+.verify {
+  
+  &__container {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     color: white;
-    font-size: 16px;
-    cursor: pointer;
 
-    &:hover {
-      background-color: white;
-      color: black;
+    &__info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      h2 {
+        margin-bottom: 20px;
+      }
+    
+      button {
+        padding: 10px 20px;
+        background-color: transparent;
+        border: 2px solid white;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    
+        &:hover {
+          background-color: white;
+          color: black;
+        }
+      }
     }
   }
+}
 
-  @media (min-width: 768px) { 
-    width: 100%; 
+@media (max-width: 1024px) {
+  .verify {
+
+    &__container {
+
+      &__info {
+
+        h2 {
+          font-size: 20px;
+        }
+      }
+    }
   }
 }

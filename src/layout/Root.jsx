@@ -4,7 +4,11 @@ import ValidateElement from '../components/ValidateElement';
 
 const Root = () => {
   const navigate = useNavigate();
-  const invalidPaths = ['/', '/register', '/verify-account/:token'];
+  const invalidPaths = [
+    '/', '/register', 
+    '/confirmed-account', 
+    '/verify-account'
+  ];
   
   return (
     <>

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-//import image from '/img/failed-payment.webp';
 import './index.scss';
 
 const NotFound = () => {
@@ -7,9 +6,9 @@ const NotFound = () => {
     <div className='not-found'>
       <h5 className='not-found__title'>404 NOT FOUND</h5>
       <div className='not-found__container'>
-        {/* <div className='not-found__container__img-box'>
-          <img src={image} className='not-found__container__image' />
-        </div> */}
+        <div className='not-found__container__img-box'>
+          <img src="img/not-found.jpg" className='not-found__container__image' />
+        </div>
         <div className='not-found__container__content'>
           <h1 className='not-found__container__content__title'>
             I have bad news for you
@@ -22,7 +21,7 @@ const NotFound = () => {
             <button
               type='button'
               className='not-found__container__content__button'>
-              BACK TO HOMEPAGE
+              RETURN
             </button>
           </Link>
         </div>
