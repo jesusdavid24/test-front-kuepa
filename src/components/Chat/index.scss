@@ -93,6 +93,7 @@
     padding: 2%;
 
     &__container {
+      padding: 15px;
 
       header {
 
@@ -104,30 +105,17 @@
       &__messages {
         max-height: 200px; 
       }
-    }
-  }
-}
-
-@media (max-width: 654px) {
-  .chat {
-    
-    &__container {
-
-      &__messages {
-        max-height: 100px; 
-      }
 
       &__send__message {
-
+        
         input {
-          width: 60%;
+          padding: 5px;
         }
 
         button {
-          width: 40%;
+          padding: 5px 10px;
         }
       }
     }
-
   }
 }
