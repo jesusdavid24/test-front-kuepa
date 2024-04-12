@@ -7,14 +7,11 @@ const SECRET_KEY =  `${import.meta.env.VITE_SECRET_KEY}`;
 
 const Verify = () => {
   const { token } = useParams()
-  console.log("token", token);
 
   const handleClick = async (event) => {
     event.preventDefault();
 
     const { data } = await activeUser(token);
-
-    console.log(data);
 
     const tokenCrypted = CryptoJS.AES.encrypt(data.token, SECRET_KEY).toString();
     const fullNameCrypted = CryptoJS.AES.encrypt(data.profile.name, SECRET_KEY).toString();
