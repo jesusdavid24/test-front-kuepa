@@ -1,7 +1,7 @@
 import { Link, useNavigate} from "react-router-dom";
 import toast from "../../utils/toast";
 import useForm from '../../hooks/useForm';
-import { fetchUserByUserName } from '../../api/user';
+import { fetchUserByUserName, getUserByEmail } from '../../api/user';
 import { useSelector, useDispatch } from 'react-redux';
 import { postUsers, selectPostUsers } from '../../store/redux/slices/usersSlice'
 import Loader from '../Loader'
@@ -27,6 +27,15 @@ const Register = () => {
    
     if(form.name && form.userName && form.email &&
       form.password) {
+
+        const user = await getUserByEmail(form.email)
+
+        if (user.email) {
+          return toast.fire({
+            icon: "error",
+            title: "email already exists",
+          });
+        }
 
         const userName = await fetchUserByUserName(form.userName);
 
