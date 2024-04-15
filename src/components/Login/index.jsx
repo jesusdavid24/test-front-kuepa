@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getUserByEmail } from '../../api/user';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogin, authLogin } from '../../store/redux/slices/loginSlice';
 import useForm from '../../hooks/useForm';
@@ -15,15 +16,23 @@ const Login = () => {
   const { data, error, status } = useSelector(authLogin);
   const { form, handleChange } = useForm();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    dispatch(setLogin(form))
-    toast.fire({
-      icon: "success",
-      title: "session started successfully",
-    });
+    const user = await getUserByEmail(form.email)
     
+    if (user.isActive) {
+      dispatch(setLogin(form))
+      toast.fire({
+        icon: "success",
+        title: "session started successfully",
+      });
+    } else {
+      toast.fire({
+        icon: "error",
+        title: "user does not have an active account",
+      });
+    }  
   };
 
   useEffect(() => {

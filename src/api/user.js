@@ -18,6 +18,28 @@ export const fetchUsers = async () => {
   }
 };
 
+export const getUserByEmail = async (email) => {
+  try {
+    const { data } = await axios.get(`${URL}/user/${email}`)
+    return data
+  } catch (error) {
+    console.log(error)
+    return []
+  }
+}
+
+export const fetchUserByUserName = async (userName) => {
+  try {
+    const { data } = await axios.get(`${URL}/user/by-user-name/${userName}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+
+
 export const createUsers = async (form) => {
   try {
     const { data } = await axios.post(`${URL}/user`, form);

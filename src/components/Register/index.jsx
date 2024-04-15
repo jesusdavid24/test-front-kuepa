@@ -1,6 +1,7 @@
 import { Link, useNavigate} from "react-router-dom";
 import toast from "../../utils/toast";
 import useForm from '../../hooks/useForm';
+import { fetchUserByUserName } from '../../api/user';
 import { useSelector, useDispatch } from 'react-redux';
 import { postUsers, selectPostUsers } from '../../store/redux/slices/usersSlice'
 import Loader from '../Loader'
@@ -12,8 +13,7 @@ const Register = () => {
 
   const dispatch = useDispatch();
 
-  const { error, status} = useSelector(selectPostUsers)
-
+  const { error, status } = useSelector(selectPostUsers)
 
   const { form, handleChange, resetForm } = useForm({
     name: '',
@@ -22,18 +22,30 @@ const Register = () => {
     password: '',
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+   
     if(form.name && form.userName && form.email &&
       form.password) {
-      dispatch(postUsers(form))
-      toast.fire({
-        icon: "success",
-        title: "User successfully created",
-      });
 
-      navigate("/confirmed-account");
-      resetForm();
+        const userName = await fetchUserByUserName(form.userName);
+
+        if (!userName) {        
+          dispatch(postUsers(form))
+          toast.fire({
+          icon: "success",
+          title: "User successfully created",
+        });
+
+          navigate("/confirmed-account");
+          resetForm();
+        } else {
+          return toast.fire({
+            icon: "error",
+            title: "user already exists",
+          });
+        }        
+       
     } else {
       return toast.fire({
         icon: "error",

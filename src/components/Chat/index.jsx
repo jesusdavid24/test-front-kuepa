@@ -11,12 +11,12 @@ const Chat = () => {
 
   useEffect(() => {
     socket.current = io(`${import.meta.env.VITE_BASE_URL_SOCKET}`);
-    const userName = formatWords(`${localStorage.getItem('name')} ${localStorage.getItem('role')}`)
-    
+
     socket.current.on("message", (data) => {
       const currentTime = new Date().toLocaleTimeString();
       setMessages(prevMessages => [...prevMessages, {
-        user: userName,
+        user: data.user,
+        role: data.role,
         text: data.message,
         time: currentTime
       }]);
@@ -33,8 +33,9 @@ const Chat = () => {
 
   const sendMessage = () => {
     if (newMessage.trim() !== "") {
-      const socket = io(`${import.meta.env.VITE_BASE_URL_SOCKET}`);
-      socket.emit("message", newMessage);
+      const userName = formatWords(`${localStorage.getItem('name')}`);
+      const role = formatWords(`${localStorage.getItem('role')}`)
+      socket.current.emit("message", newMessage, userName, role);
       setNewMessage("");
     }
   };
@@ -58,6 +59,7 @@ const Chat = () => {
               <div className="chat__container__messages__body__user">
                 <div className="chat__container__messages__body__user__info">
                   <span>{msg.user}</span>
+                  <span>{msg.role}</span>
                   <span>{msg.time}</span>
                 </div>
                 <p>{msg.text}</p>

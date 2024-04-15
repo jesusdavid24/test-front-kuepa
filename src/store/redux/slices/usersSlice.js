@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchUsers, createUsers } from '../../../api/user';
+import { 
+  fetchUsers, 
+  fetchUserByUserName,
+  createUsers 
+} from '../../../api/user';
 
 const initialState = {
   users: [],
@@ -49,7 +53,8 @@ const usersSlice = createSlice({
       })
       .addCase(postUsers.rejected, (state, { error }) => {
         state.status = 'failed',
-        state.error = error.message
+        state.error = error.message,
+        state.userExists = error.message === 'User already exists' // Actualizar el estado userExists si el usuario ya existe
       })
   }
 });

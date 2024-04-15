@@ -1,9 +1,14 @@
 import { useLocation } from 'react-router-dom';
 
 const ValidateElement = ({ children, invalidPaths }) => {
-  const location = useLocation();
-  const isInvalid = invalidPaths.some((item) => item === location.pathname);
+  const { pathname } = useLocation();
+
+  const isInvalid = invalidPaths.some(path => 
+    path.includes(':') ? pathname.startsWith(path.replace(/:.*/, '')) : pathname === path
+  );
+
   return isInvalid ? null : children;
 };
 
 export default ValidateElement;
+
