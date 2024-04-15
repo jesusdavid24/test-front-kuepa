@@ -29,13 +29,14 @@ const Register = () => {
       form.password) {
 
         const user = await getUserByEmail(form.email)
-
+        
         if (user.email) {
           return toast.fire({
             icon: "error",
             title: "email already exists",
           });
         }
+
 
         const userName = await fetchUserByUserName(form.userName);
 
